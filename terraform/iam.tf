@@ -7,7 +7,7 @@ data "aws_iam_policy_document" "ping_pong_policy_document" {
 
         principals {
             identifiers = ["*"]
-            type        = ["*"]
+            type        = "*"
         }
     }
 }
