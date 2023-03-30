@@ -15,8 +15,9 @@ resource "aws_s3_bucket_policy" "ping_pong_policy"{
     bucket = aws_s3_bucket.ping_pong.id
     policy = data.aws_iam_policy_document.ping_pong_policy_document.json
 }
-
+/* 
 resource "aws_s3_bucket_website_configuration" "ping_pong" {
     bucket = aws_s3_bucket.ping_pong.id
     #TODO: add html
 }
+ */
