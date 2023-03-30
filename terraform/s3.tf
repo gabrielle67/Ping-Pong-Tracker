@@ -13,7 +13,7 @@ resource "aws_s3_bucket_public_access_block" "ping_pong_public_access" {
 
 resource "aws_s3_bucket_policy" "ping_pong_policy"{
     bucket = aws_s3_bucket.ping_pong.id
-    policy = data.ping_pong_policy_document.json
+    policy = data.aws_iam_policy_document.ping_pong_policy_document
 }
 
 resource "aws_s3_bucket_website_configuration" "ping_pong" {
