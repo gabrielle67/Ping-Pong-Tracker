@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "ping_pong" {
-    bucket = "inception_ping_pong_tracker.com"
+    bucket = "inception-ping-pong-tracker.com"
 }
 
 resource "aws_s3_bucket_public_access_block" "ping_pong_public_access" {
