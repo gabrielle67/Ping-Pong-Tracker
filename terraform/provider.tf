@@ -5,15 +5,15 @@ terraform {
       source  = "hashicorp/aws"
       version = "4.60.0"
     }
+  }
 
-    cloud {
-      organization = "goob"
+  cloud {
+    organization = "goob"
 
-      workspaces {
-        name = "Ping-Pong-Workspace"
-      }
+    workspaces {
+      name = "Ping-Pong-Workspace"
     }
-  } 
+  }
 }
 
 provider "aws" {
