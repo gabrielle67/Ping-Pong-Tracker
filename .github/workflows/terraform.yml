@@ -57,8 +57,6 @@ jobs:
     name: 'Terraform'
     runs-on: ubuntu-latest
     environment: production
-    script:
-      - cd terraform
 
 
     # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
@@ -78,6 +76,8 @@ jobs:
         cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
+    - script:
+      - cd terraform
     - name: Terraform Init
       run: terraform init
 
