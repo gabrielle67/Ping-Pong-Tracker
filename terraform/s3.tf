@@ -2,17 +2,21 @@ resource "aws_s3_bucket" "ping_pong" {
     bucket = "Inception_ping_pong_tracker.com"
 }
 
-resource "aws_s3_bucket_acl" "ping_pong_acl" {
+resource "aws_s3_bucket_public_access_block" "ping_pong_public_access" {
     bucket = aws_s3_bucket.ping_pong.id
-    acl    = "public"
+
+    block_public_acls       = false
+    block_public_policy     = false
+    ignore_public_acls      = false
+    restrict_public_buckets = false
 }
 
 resource "aws_s3_bucket_policy" "ping_pong_policy"{
     bucket = aws_s3_bucket.ping_pong.id
-    policy = data.ping_pong_policy_document.json
+    policy = data.aws_iam_policy_document.ping_pong_policy_document.json
 }
 
 resource "aws_s3_bucket_website_configuration" "ping_pong" {
-    bucket = aws_s3_bucket.ping_pong_bucket.id
+    bucket = aws_s3_bucket.ping_pong.id
     #TODO: add html
 }
