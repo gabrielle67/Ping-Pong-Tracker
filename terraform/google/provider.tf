@@ -16,6 +16,6 @@ terraform {
 }
 
 provider "google-beta" {
-    project = "pingpong-384918"
-    region = "us-east1"
+    project = google_project.default.project_id
+    region = "us-central1"
 }
