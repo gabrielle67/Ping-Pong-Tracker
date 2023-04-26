@@ -9,5 +9,5 @@ resource "google_project" "ping_pong_project" {
 
 resource "google_firebase_project" "ping_pong_firebase_project" {
   provider = google-beta
-  project  = google_project.default.project_id
+  project  = google_project.project_id
 }
