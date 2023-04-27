@@ -69,6 +69,13 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
 
+    - name: Download Service Account Key
+      run: |
+        gcloud auth activate-service-account --key-file=<(echo '${{ secrets.GOOGLE.CREDENTIALS }}') --project=${{ secrets.GOOGLE_PROJECT_ID }}
+        mkdir -p $GITHUB_WORKSPACE/keys
+        gcloud iam service-accounts keys create $GITHUB_WORKSPACE/keys/ping_pong_service_account_key.json --iam-account=ping-pong-svc-acct@${{ secrets.GOOGLE_PROJECT_ID }}.iam.gserviceaccount.com
+    
+    
     - name: Set up GCP Credentials
       run: export GOOGLE_APPLICATION_CREDENTIALS=$GITHUB_WORKSPACE/credentials.json
 
