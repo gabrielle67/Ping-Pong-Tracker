@@ -1,5 +1,5 @@
 resource "google_service_account" "ping_pong_service_account" {
-  account_id   = "ping_pong_service_account"
+  account_id   = "ping-pong-svc-acct"
   display_name = "Ping Pong Service Account"
 }
 
