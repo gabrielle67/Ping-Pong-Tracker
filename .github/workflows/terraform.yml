@@ -69,15 +69,24 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
 
-    - name: Set up GCP Credentials
-      run: gcloud auth activate-service-account --key-file=$GITHUB_WORKSPACE/credentials.json --account=${{ secrets.GOOGLE_SERVICE_ACCOUNT_EMAIL }}
-           gcloud iam service-accounts keys create $GITHUB_WORKSPACE/keys/ping_pong_service_account_key.json --iam-account=${{ secrets.GOOGLE_SERVICE_ACCOUNT_EMAIL }}
-
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1
+
+    - name: Set up GCP Credentials
+      uses: google-github-actions/setup-gcloud@v0.2.0
       with:
-        cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+        project_id: ${{ secrets.GOOGLE_PROJECT_ID }}
+        service_account_key: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
+
+    - name: Create Service Account Key
+      run: terraform apply -auto-approve
+
+    - name: Download Service Account Key
+      uses: actions/download-artifact@v2
+      with:
+        name: service_account_key
+        path: ${{ github.workspace }}/keys
 
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
