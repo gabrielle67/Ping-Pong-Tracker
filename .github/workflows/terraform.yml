@@ -79,6 +79,10 @@ jobs:
         project_id: ${{ secrets.GOOGLE_PROJECT_ID }}
         service_account_key: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
 
+    # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
+    - name: Terraform Init
+      run: terraform -chdir=terraform/google init
+
     - name: Create Service Account Key
       run: terraform -chdir=terraform/google apply -auto-approve
 
@@ -87,10 +91,6 @@ jobs:
       with:
         name: service_account_key
         path: ${{ github.workspace }}/keys
-
-    # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
-    - name: Terraform Init
-      run: terraform -chdir=terraform/google init
 
     # Checks that all Terraform configuration files adhere to a canonical format
     - name: Terraform Format
