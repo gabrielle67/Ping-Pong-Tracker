@@ -80,7 +80,7 @@ jobs:
         service_account_key: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
 
     - name: Create Service Account Key
-      run: terraform apply -auto-approve
+      run: terraform -chdir=terraform/google apply -auto-approve
 
     - name: Download Service Account Key
       uses: actions/download-artifact@v2
