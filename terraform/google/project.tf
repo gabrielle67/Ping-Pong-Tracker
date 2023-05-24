@@ -1,5 +1,5 @@
 resource "google_project" "ping_pong_project" {
-  provider = google-beta
+  provider = google
   project_id = "ping-pong"
   name       = "Ping-Pong-Project"
   labels     = {
@@ -8,6 +8,6 @@ resource "google_project" "ping_pong_project" {
 }
 
 resource "google_firebase_project" "ping_pong_firebase_project" {
-  provider = google-beta
+  provider = google
   project  = google_project.ping_pong_project.project_id
 }
