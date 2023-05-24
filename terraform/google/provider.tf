@@ -1,7 +1,7 @@
 terraform {
   required_providers {
-    google-beta = {
-        source = "hashicorp/google-beta"
+    google = {
+        source = "hashicorp/google"
         version = "4.63.1"
     }
   }
@@ -15,6 +15,8 @@ terraform {
   }
 }
 
-provider "google-beta" {
+provider "google" {
     region = "us-central1"
+    project = "main-proj-385806"
+    credentials = var.GOOGLE_APPLICATIONS_CREDENTIALS
 }
