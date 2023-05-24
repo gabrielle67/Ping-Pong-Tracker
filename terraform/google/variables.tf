@@ -1,4 +1,4 @@
-variable "credentials" {
-    description = "GCP Credentials"
+variable "token" {
+    description = "GCP Access Token"
     type = string
 }
