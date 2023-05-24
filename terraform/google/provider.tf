@@ -18,5 +18,5 @@ terraform {
 provider "google-beta" {
     region = "us-central1"
     project = "main-proj-385806"
-
+    credentials = env("credentials")
 }
