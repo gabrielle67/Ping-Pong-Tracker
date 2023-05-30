@@ -1,0 +1,10 @@
+name: General
+
+jobs:
+  Sheets:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Env Vars
+        env: 
+          SERVICE_ACCT: ${{ secrets.PINGPONG_SA }}
