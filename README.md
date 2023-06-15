@@ -1,11 +1,16 @@
 #Team Inception Ping-Pong Tracker
 
-This project is a static website that tracks ping-pong games. It consists of the following:
+This project is a static website that tracks ping-pong games.
+    
+Terraform: 
+    - Lambda, handling data manipulation
+    - S3 Bucket, hosting the static site
 
-Terraform: The static site is hosted within an S3 bucket
-Player data is stored in Google Sheets
+Frontend:
+    - This contains a React App
 
-Src:
-- This contains the actual react app, the player & players classes
+Backend
+    - Functions for the Lambda to handle Player data
+    - Model files for the Player data structures
 
 

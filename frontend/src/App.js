@@ -1,9 +1,9 @@
 import React from 'react';
-import Navigation from './nav/Navigation';
+import Navigation from './components/nav/Navigation';
 
 function App() {
   return (
-    <div classname= "app">
+    <div className= "app">
       <Navigation />
       <h2>
         Current Ping Pong Champion:
