@@ -1,4 +1,4 @@
-#Team Inception Ping-Pong Tracker
+# Team Inception Ping-Pong Tracker
 
 This project is a static website that tracks ping-pong games.
     
