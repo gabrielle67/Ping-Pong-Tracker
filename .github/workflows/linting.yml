@@ -5,11 +5,9 @@ on:
     branches:
   pull_request:
 
-image: python:3
- 
-before_script:
-  - pip install flake8
- 
-test:
+flake8:
+  image: python:latest
+  stage: validate
   script:
-    - flake8 backend/
+    - pip install flake8
+    - flake8
