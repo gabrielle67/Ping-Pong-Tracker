@@ -5,9 +5,21 @@ on:
     branches:
   pull_request:
 
-flake8:
-  image: python:latest
-  stage: validate
-  script:
-    - pip install flake8
-    - flake8
+jobs:
+  flake8:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+
+      - name: Install dependencies
+        run: pip install flake8
+
+      - name: Run linting
+        run: flake8
