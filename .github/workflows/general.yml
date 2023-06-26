@@ -1,10 +1,13 @@
 name: 'General'
 
 jobs:
-  Sheets:
+  set_up:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        
       - name: Env Vars
         env: 
           SERVICE_ACCT: ${{ secrets.PINGPONG_SA }}
