@@ -1,7 +1,12 @@
 name: Linting
 
+on:
+  push:
+    branches:
+  pull_request:
+
 image: python:3
- 
+
 before_script:
   - pip install flake8
  
