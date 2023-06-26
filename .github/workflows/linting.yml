@@ -1,4 +1,4 @@
-name: Linting
+name: 'Linting'
 
 on:
   push:
@@ -6,11 +6,10 @@ on:
   pull_request:
 
 image: python:3
-
+ 
 before_script:
   - pip install flake8
  
-job: flake8
-  test:
-    script:
-      - flake8 backend/
+test:
+  script:
+    - flake8 backend/
