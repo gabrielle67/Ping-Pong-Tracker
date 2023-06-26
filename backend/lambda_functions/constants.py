@@ -1,0 +1,12 @@
+import os
+
+CREDENTIALS = os.environ.get("CREDENTIALS")
+SHEET_KEY = os.environ.get("SHEET_KEY")
+
+SHEET_INDEX = 0
+
+COL_NAME = 1
+COL_SETS = 2
+COL_WINS = 3
+COL_LOSS = 4
+COL_SCORES = 5
