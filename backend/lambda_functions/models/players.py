@@ -2,7 +2,7 @@ import sys
 import ast
 import json
 sys.path.append('./lambda_functions')
-from player import Player # noqa E402
+from .player import Player # noqa E402
 from constants import ( # noqa E402
     COL_NAME,
     COL_SCORES,
@@ -22,7 +22,7 @@ class Players:
     def __init__(self, sheet):
         self.sheet = sheet
 
-    def rowToPlayer(data):
+    def rowToPlayer(self, data):
         """
         converts the sheet row list to a player object
         """
@@ -36,7 +36,7 @@ class Players:
 
         return player
 
-    def playerToRow(player):
+    def playerToRow(self, player):
         """
         converts player object to sheets row list
         """
