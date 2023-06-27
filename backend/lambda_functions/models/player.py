@@ -10,7 +10,7 @@ class Player:
         self.totalLosses = 0
 
     # Validators
-    def checkOpponent(opponent):
+    def checkOpponent(self, opponent):
         """
         Validates that the opponent is not null
         """
@@ -22,16 +22,15 @@ class Player:
         """
         if self.checkOpponent(opponent):
             return opponent in self.scores
-        raise TypeError("Opponent cannot be empty or None")
+        raise ValueError("Opponent cannot be empty or None")
 
-    def checkscore(score):
+    def checkScore(self, score):
         """
         Validates that the score is a positive int
         """
         wins = score[0]
         losses = score[1]
-        return (wins < 0 or losses < 0 or math.isnan(wins) or
-                math.isnan(losses))
+        return (wins >= 0 and losses >= 0)
 
     # getters and setters
     def getName(self):
@@ -78,7 +77,7 @@ class Player:
             raise ValueError("Opponent must exist in Player scores")
 
     def addScore(self, opponent, score):
-        if not self.checkscore(score):
+        if not self.checkScore(score):
             raise ValueError("Score must be positive integer")
         else:
             wins = score[0]
