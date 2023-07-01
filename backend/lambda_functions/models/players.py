@@ -22,6 +22,7 @@ from storage import ( # noqa E402
 
 logger = logging.getLogger('Players')
 
+
 class Players:
     def __init__(self, sheet):
         self.sheet = sheet
@@ -188,11 +189,13 @@ class Players:
 
             set_cell(self.sheet, winnerRow, COL_SETS, winnerResult.totalSets)
             set_cell(self.sheet, winnerRow, COL_WINS, winnerResult.totalWins)
-            set_cell(self.sheet, winnerRow, COL_SCORES, str(winnerResult.getScores()))
+            set_cell(self.sheet, winnerRow, COL_SCORES, 
+                     str(winnerResult.getScores()))
 
             set_cell(self.sheet, loserRow, COL_SETS, loserResult.totalSets)
             set_cell(self.sheet, loserRow, COL_LOSS, loserResult.totalLosses)
-            set_cell(self.sheet, loserRow, COL_SCORES, str(loserResult.getScores()))
+            set_cell(self.sheet, loserRow, COL_SCORES, 
+                     str(loserResult.getScores()))
 
         else:
             raise ValueError("One or more players not found")
