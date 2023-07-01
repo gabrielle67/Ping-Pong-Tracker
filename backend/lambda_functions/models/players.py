@@ -189,12 +189,12 @@ class Players:
 
             set_cell(self.sheet, winnerRow, COL_SETS, winnerResult.totalSets)
             set_cell(self.sheet, winnerRow, COL_WINS, winnerResult.totalWins)
-            set_cell(self.sheet, winnerRow, COL_SCORES, 
+            set_cell(self.sheet, winnerRow, COL_SCORES,
                      str(winnerResult.getScores()))
 
             set_cell(self.sheet, loserRow, COL_SETS, loserResult.totalSets)
             set_cell(self.sheet, loserRow, COL_LOSS, loserResult.totalLosses)
-            set_cell(self.sheet, loserRow, COL_SCORES, 
+            set_cell(self.sheet, loserRow, COL_SCORES,
                      str(loserResult.getScores()))
 
         else:
