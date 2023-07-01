@@ -1,12 +1,14 @@
 import sys
 import ast
-import json
+import logging
 sys.path.append('./lambda_functions')
-from .player import Player # noqa E402
+from player import Player # noqa E402
 from constants import ( # noqa E402
     COL_NAME,
     COL_SCORES,
-    COL_WINS
+    COL_WINS,
+    COL_SETS,
+    COL_LOSS
 )
 from storage import ( # noqa E402
     find_row,
@@ -18,6 +20,8 @@ from storage import ( # noqa E402
 )
 
 
+logger = logging.getLogger('Players')
+
 class Players:
     def __init__(self, sheet):
         self.sheet = sheet
@@ -27,11 +31,11 @@ class Players:
         converts the sheet row list to a player object
         """
         player = Player(data[0])
-        player.totalSets = data[1]
-        player.totalWins = data[2]
-        player.totalLosses = data[3]
+        player.totalSets = int(data[1])
+        player.totalWins = int(data[2])
+        player.totalLosses = int(data[3])
 
-        scoresDict = json.loads(data[4])
+        scoresDict = ast.literal_eval(data[4])
         player.scores = scoresDict
 
         return player
@@ -41,11 +45,11 @@ class Players:
         converts player object to sheets row list
         """
         data = [
-            player.getName,
-            player.getTotalSets,
-            player.getTotalWins,
-            player.getTotalLosses,
-            str(player.getScores)
+            player.getName(),
+            player.getTotalSets(),
+            player.getTotalWins(),
+            player.getTotalLosses(),
+            str(player.getScores())
         ]
 
         return data
@@ -79,20 +83,24 @@ class Players:
         add new player object to sheets
         """
         if self.checkPlayer(playerName) is None:
+            logger.info('creating new player...')
             player = self.createPlayer(playerName)
             col = get_column(self.sheet, COL_SCORES)[1:]
 
+            logger.info('creating new scores list for other players')
             scores_list = []
             for scores in col:
                 score = ast.literal_eval(scores)
                 score[playerName.lower()] = [0, 0]
                 scores_list.append(str(score))
 
+            logger.info('putting new scores in spreadsheet...')
             row = 2
             for i in scores_list:
                 set_cell(self.sheet, row, COL_SCORES, i)
                 row += 1
 
+            logger.info('adding new player to spreadsheet...')
             data = self.playerToRow(player)
             add_row(self.sheet, data)
         else:
@@ -172,14 +180,19 @@ class Players:
         loserResult = self.checkPlayer(loser)
 
         if (winnerResult is not None) and (loserResult is not None):
-            winnerResult.totalSets += 1
-            winnerResult.totalWins += 1
+            winnerRow = find_row(self.sheet, winner.lower())
+            loserRow = find_row(self.sheet, loser.lower())
 
-            loserResult.totalSets += 1
-            loserResult.totalLosses += 1
+            winnerResult.addScore(loser.lower(), [1, 0])
+            loserResult.addScore(winner.lower(), [0, 1])
 
-            winnerResult.scores[loser][0] += 1
-            loserResult.scores[winner][1] += 1
+            set_cell(self.sheet, winnerRow, COL_SETS, winnerResult.totalSets)
+            set_cell(self.sheet, winnerRow, COL_WINS, winnerResult.totalWins)
+            set_cell(self.sheet, winnerRow, COL_SCORES, str(winnerResult.getScores()))
+
+            set_cell(self.sheet, loserRow, COL_SETS, loserResult.totalSets)
+            set_cell(self.sheet, loserRow, COL_LOSS, loserResult.totalLosses)
+            set_cell(self.sheet, loserRow, COL_SCORES, str(loserResult.getScores()))
 
         else:
             raise ValueError("One or more players not found")
