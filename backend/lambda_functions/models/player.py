@@ -80,7 +80,8 @@ class Player:
             wins = score[0]
             losses = score[1]
 
-            self.scores[opponent] = score
+            self.scores[opponent][0] += wins
+            self.scores[opponent][1] += losses
             self.totalSets += wins + losses
 
             self.totalWins += wins
