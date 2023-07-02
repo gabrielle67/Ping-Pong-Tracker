@@ -16,10 +16,12 @@ resource "aws_s3_bucket_policy" "ping_pong_policy"{
     policy = data.aws_iam_policy_document.ping_pong_policy_document.json
 }
 
-resource "aws_s3_bucket_object" "frontend_files" {
-  bucket = aws_s3_bucket.ping_pong.id
-  key    = "ping_pong_frontend/"
-  source = "../frontend"
+resource "aws_s3_object" "frontend_files" {
+    for_each = fileset("../frontend/", "*")
+    bucket = aws_s3_bucket.ping_pong.id
+    key = each.value
+    source = "frontend/${each.value}"
+    etag = filemd5("frontend/${each.value}")
 
 }
 
