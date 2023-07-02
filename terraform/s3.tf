@@ -19,10 +19,8 @@ resource "aws_s3_bucket_policy" "ping_pong_policy"{
 resource "aws_s3_bucket_object" "frontend_files" {
   bucket = aws_s3_bucket.ping_pong.id
   key    = "ping_pong_frontend/"
-
   source = "../frontend"
 
-  recursive = true
 }
 
 /*
