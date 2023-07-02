@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "ping_pong" {
-    bucket = "inception-ping-pong-tracker.com"
+    bucket = "www.ping-pong-tracker.com"
 }
 
 resource "aws_s3_bucket_public_access_block" "ping_pong_public_access" {
@@ -15,9 +15,11 @@ resource "aws_s3_bucket_policy" "ping_pong_policy"{
     bucket = aws_s3_bucket.ping_pong.id
     policy = data.aws_iam_policy_document.ping_pong_policy_document.json
 }
-/* 
-resource "aws_s3_bucket_website_configuration" "ping_pong" {
+
+resource "aws_s3_bucket_website_configuration" "ping_pong_site_config" {
     bucket = aws_s3_bucket.ping_pong.id
-    #TODO: add html
+
+    index_document {
+        suffix =  "../frontend/public/index.html" 
+        }
 }
- */

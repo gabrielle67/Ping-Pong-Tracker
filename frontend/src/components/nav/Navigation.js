@@ -8,7 +8,7 @@ function Navigation() {
         <navigation>
             <NavButton title="teammates"/>
             <NavButton title="new game"/>
-            <NavButton title='edit data'/>
+            <NavButton title='view data'/>
             <Header />
         </navigation>
     )
