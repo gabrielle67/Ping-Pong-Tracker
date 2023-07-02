@@ -40,7 +40,7 @@ jobs:
       run: terraform -chdir=terraform validate 
 
     - name: Terraform Plan
-      run: terraform -chdir=terraform -input=false
+      run: terraform -chdir=terraform plan -input=false
 
     - name: Terraform Apply
       if: github.ref == 'refs/heads/main' && github.event_name == 'push'
