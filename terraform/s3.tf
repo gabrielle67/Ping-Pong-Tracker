@@ -16,10 +16,21 @@ resource "aws_s3_bucket_policy" "ping_pong_policy"{
     policy = data.aws_iam_policy_document.ping_pong_policy_document.json
 }
 
+resource "aws_s3_bucket_object" "frontend_files" {
+  bucket = aws_s3_bucket.ping_pong.id
+  key    = "ping_pong_frontend/"
+
+  source = "../frontend"
+
+  recursive = true
+}
+
+/*
 resource "aws_s3_bucket_website_configuration" "ping_pong_site_config" {
     bucket = aws_s3_bucket.ping_pong.id
 
     index_document {
-        suffix =  "../frontend/public/index.html" 
+        suffix =  "ping_pong_frontend/public/index.html" 
         }
 }
+*/
