@@ -1,9 +1,12 @@
 import os
+from storage import get_sheet, get_spreadsheet
 
 CREDENTIALS = os.environ.get("CREDENTIALS")
 SHEET_KEY = os.environ.get("SHEET_KEY")
+SHEET_INDEX = 1
 
-SHEET_INDEX = 0
+SPREADSHEET = get_spreadsheet(CREDENTIALS, SHEET_KEY)
+SHEET = get_sheet(SPREADSHEET, SHEET_INDEX)
 
 COL_NAME = 1
 COL_SETS = 2
