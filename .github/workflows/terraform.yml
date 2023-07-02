@@ -29,22 +29,19 @@ jobs:
       uses: hashicorp/setup-terraform@v1
       with:
         cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
-    
-    - name: display directory
-      run: pwd
 
     - name: Terraform Init
-      run: terraform init
+      run: terraform -chdir=terraform init
 
     - name: Terraform Format
-      run: terraform fmt -check
+      run: terraform -chdir=terraform fmt -check
 
     - name: Terraform Validate
-      run: terraform validate 
+      run: terraform -chdir=terraform validate 
 
     - name: Terraform Plan
-      run: terraform plan -input=false
+      run: terraform -chdir=terraform plan -input=false
 
     - name: Terraform Apply
       if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-      run: terraform apply -auto-approve -input=false
+      run: terraform -chdir=terraform apply -auto-approve -input=false
