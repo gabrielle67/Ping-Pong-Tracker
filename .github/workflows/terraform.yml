@@ -31,17 +31,17 @@ jobs:
         cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
     - name: Terraform Init
-      run: terraform -chdir=terraform init
+      run: terraform init
 
     - name: Terraform Format
       run: terraform fmt -check
 
     - name: Terraform Validate
-      run: terraform -chdir=terraform validate 
+      run: terraform validate 
 
     - name: Terraform Plan
-      run: terraform -chdir=terraform plan -input=false
+      run: terraform plan -input=false
 
     - name: Terraform Apply
       if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-      run: terraform -chdir=terraform apply -auto-approve -input=false
+      run: terraform apply -auto-approve -input=false
