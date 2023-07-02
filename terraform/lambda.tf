@@ -1,7 +1,7 @@
 data "archive_file" "lambda" {
   type        = "zip"
   source_dir  = "../backend/lambda_functions"
-  output_path = "/tmp/lambda_output.zip"
+  output_path = "lambda_output.zip"
 }
 
 resource "aws_lambda_function" "get_highest_scorer" {
