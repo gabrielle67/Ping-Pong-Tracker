@@ -4,10 +4,13 @@ variable "file_types" {
   default = {
     "html" = "text/html"
     "css"  = "text/css"
+    "json" = "application/json"
     "js"   = "application/javascript"
     "png"  = "image/png"
     "jpg"  = "image/jpeg"
     "gif"  = "image/gif"
+    "txt"  = "text/plain"
+    "map"  = "binary/octet-stream"
   }
 }
 
