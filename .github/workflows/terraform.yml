@@ -39,6 +39,6 @@ jobs:
 
     - name: Terraform Apply
       run: |
-        export TF_VAR_SHEET_KEY="${{ secrets.TF_VAR_SHEET_KEY }}"
-        export TF_VAR_SERVICE_ACCT="${{ secrets.TF_VAR_SERVICE_ACCT }}"
+        export tf_var_sheet_key="${{ secrets.TF_VAR_SHEET_KEY }}"
+        export tf_var_credentials="${{ secrets.TF_VAR_SERVICE_ACCT }}"
         terraform -chdir=terraform apply -auto-approve -input=false
