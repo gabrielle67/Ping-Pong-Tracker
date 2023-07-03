@@ -21,8 +21,6 @@ resource "aws_s3_object" "frontend_files" {
     bucket = aws_s3_bucket.ping_pong.id
     key = each.value
     source = "frontend/${each.value}"
-    etag = filemd5("frontend/${each.value}")
-
 }
 
 /*
