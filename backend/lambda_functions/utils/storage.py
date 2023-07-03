@@ -1,4 +1,6 @@
-import gspread
+import sys
+sys.path.append('./gspread')
+import gspread # noqa E402
 
 
 def get_spreadsheet(credentials, key):
