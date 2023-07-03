@@ -11,3 +11,8 @@ resource "aws_lambda_function" "get_highest_scorer" {
   runtime       = "python3.9"
   filename      = data.archive_file.lambda.output_path
 }
+
+resource "aws_lambda_function_url" "get_highest_scorer_url" {
+  function_name = aws_lambda_function.get_highest_scorer.function_name
+  authorization_type = "NONE"
+}
