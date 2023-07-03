@@ -18,9 +18,20 @@ resource "aws_s3_bucket_policy" "ping_pong_policy"{
 
 resource "aws_s3_object" "frontend_files" {
     for_each = fileset("../frontend/build/", "**/*")
-    bucket = aws_s3_bucket.ping_pong.id
-    key = each.value
-    source = "../frontend/build/${each.value}"
+    bucket   = aws_s3_bucket.ping_pong.id
+    key      = each.value
+    source   = "../frontend/build/${each.value}"
+
+    content_type = each.value != "" ? lookup({
+    ".html" = "text/html",
+    ".css"  = "text/css",
+    ".js"   = "application/javascript",
+    ".json" = "application/json",
+    ".png"  = "image/png",
+    ".jpg"  = "image/jpeg",
+    ".jpeg" = "image/jpeg",
+    ".gif"  = "image/gif",
+  }, lower(fileext(each.value)), "application/octet-stream") : "application/octet-stream"
 }
 
 resource "aws_s3_bucket_website_configuration" "ping_pong_site_config" {
