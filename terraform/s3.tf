@@ -17,7 +17,7 @@ resource "aws_s3_bucket_policy" "ping_pong_policy"{
 }
 
 resource "aws_s3_object" "frontend_files" {
-    for_each = fileset("../frontend/build", "**/*")
+    for_each = fileset("../frontend/build/", "**/*")
     bucket = aws_s3_bucket.ping_pong.id
     key = each.value
     source = "../frontend/build${each.value}"
