@@ -15,7 +15,7 @@ variable "file_types" {
 }
 
 resource "aws_s3_bucket" "ping_pong" {
-    bucket = "www.ping-pong-tracker.com"
+    bucket = "ping-pong-tracker"
 }
 
 resource "aws_s3_bucket_public_access_block" "ping_pong_public_access" {
