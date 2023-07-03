@@ -1,3 +1,16 @@
+variable "file_types" {
+  type = map(string)
+
+  default = {
+    "html" = "text/html"
+    "css"  = "text/css"
+    "js"   = "application/javascript"
+    "png"  = "image/png"
+    "jpg"  = "image/jpeg"
+    "gif"  = "image/gif"
+  }
+}
+
 resource "aws_s3_bucket" "ping_pong" {
     bucket = "www.ping-pong-tracker.com"
 }
@@ -22,14 +35,7 @@ resource "aws_s3_object" "frontend_files" {
     key      = each.value
     source   = "../frontend/build/${each.value}"
 
-    content_type = element(split(".", each.value), -1) == "html" ? "text/html" : (
-                   element(split(".", each.value), -1) == "css" ? "text/css" : (
-                   element(split(".", each.value), -1) == "js" ? "application/javascript" : (
-                   element(split(".", each.value), -1) == "png" ? "image/png" : (
-                   element(split(".", each.value), -1) == "jpg" ? "image/jpeg" : (
-                   element(split(".", each.value), -1) == "gif" ? "image/gif" : (
-                   "application/octet-stream" 
-                   ))))))
+    content_type = coalesce(lookup(var.file_types, split(".", each.value)[1]), "application/octet-stream")
 }
 
 resource "aws_s3_bucket_website_configuration" "ping_pong_site_config" {
