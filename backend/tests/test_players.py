@@ -22,7 +22,11 @@ def players():
 @patch('storage.add_row')
 @patch('storage.get_column')
 @patch('storage.get_row')
-def test_addPlayer(mock_find_row, mock_set_cell, mock_add_row, mock_get_column, mock_get_row):
+def test_addPlayer(mock_find_row,
+                    mock_set_cell,
+                    mock_add_row,
+                    mock_get_column,
+                    mock_get_row):
     mock_find_row.return_value = None
     mock_get_column.return_value = DUMMY_SCORES
     mock_get_row.return_value = DUMMY_SCORES
@@ -34,10 +38,6 @@ def test_addPlayer(mock_find_row, mock_set_cell, mock_add_row, mock_get_column, 
     assert players.checkPlayer(PLAYER_ALICE) is not None
 
 """
-
-
-
-
 """
 
 def test_removePlayer():

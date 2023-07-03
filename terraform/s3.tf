@@ -35,7 +35,10 @@ resource "aws_s3_object" "frontend_files" {
     key      = each.value
     source   = "../frontend/build/${each.value}"
 
-    content_type = coalesce(lookup(var.file_types, split(".", each.value)[1]), "application/octet-stream")
+    content_type = coalesce(
+                    lookup(var.file_types, 
+                            split(".", each.value)[length(split(".", each.value))-1],
+                             "application/octet-stream"))
 }
 
 resource "aws_s3_bucket_website_configuration" "ping_pong_site_config" {
