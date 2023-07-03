@@ -3,14 +3,14 @@ import ast
 import logging
 sys.path.append('./utils')
 from player import Player # noqa E402
-from utils.constants import ( # noqa E402
+from constants import ( # noqa E402
     COL_NAME,
     COL_SCORES,
     COL_WINS,
     COL_SETS,
     COL_LOSS
 )
-from utils.storage import ( # noqa E402
+from storage import ( # noqa E402
     find_row,
     get_column,
     set_cell,
