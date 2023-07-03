@@ -2,7 +2,7 @@
 # Inception Ping Pong Tracker
 
 This project allows users to track ping pong scores and view score data.
-Site[http://ping-pong-tracker.s3-website-us-east-1.amazonaws.com/]
+[Site](http://ping-pong-tracker.s3-website-us-east-1.amazonaws.com/)
 
 
 
