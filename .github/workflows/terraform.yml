@@ -38,10 +38,7 @@ jobs:
       run: terraform -chdir=terraform plan -input=false
 
     - name: Terraform Apply
-      script:
+      run:
         - export sheet_key=$secrets.TF_VAR_SHEET_KEY
         - export credentials=$secrets.TF_VAR_SERVICE_ACCT
-        - |
-           if [ $CI_COMMIT_REF_NAME = "main" ] && [ $CI_PIPELINE_SOURCE = "push" ]; then
-           terraform -chdir=terraform apply -auto-approve -input=false
-           fi
+        - terraform -chdir=terraform apply -auto-approve -input=false
