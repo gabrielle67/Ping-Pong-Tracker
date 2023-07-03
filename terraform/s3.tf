@@ -23,12 +23,10 @@ resource "aws_s3_object" "frontend_files" {
     source = "../frontend/${each.value}"
 }
 
-/*
 resource "aws_s3_bucket_website_configuration" "ping_pong_site_config" {
     bucket = aws_s3_bucket.ping_pong.id
 
     index_document {
-        suffix =  "ping_pong_frontend/public/index.html" 
+        suffix =  "public/index.html" 
         }
 }
-*/
