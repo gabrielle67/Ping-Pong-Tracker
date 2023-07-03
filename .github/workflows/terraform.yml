@@ -38,5 +38,7 @@ jobs:
       run: terraform -chdir=terraform plan -input=false
 
     - name: Terraform Apply
+      run: export sheet_key=$secrets.TF_VAR_SHEET_KEY
+      run: export credentials=$secrets.TF_VAR_SERVICE_ACCT
       if: github.ref == 'refs/heads/main' && github.event_name == 'push'
       run: terraform -chdir=terraform apply -auto-approve -input=false
