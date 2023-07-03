@@ -19,6 +19,10 @@ jobs:
       run:
         shell: bash
 
+    variables:
+      TF_VAR_SHEET_KEY: ${{ secrets.TF_VAR_SHEET_KEY }}
+      TF_VAR_SERVICE_ACCT: ${{ secrets.TF_VAR_SERVICE_ACCT }}
+
     steps:
     - name: Checkout
       uses: actions/checkout@v3
@@ -38,7 +42,4 @@ jobs:
       run: terraform -chdir=terraform plan -input=false
 
     - name: Terraform Apply
-      run:
-        - export sheet_key=$secrets.TF_VAR_SHEET_KEY
-        - export credentials=$secrets.TF_VAR_SERVICE_ACCT
-        - terraform -chdir=terraform apply -auto-approve -input=false
+      run: terraform -chdir=terraform apply -auto-approve -input=false
