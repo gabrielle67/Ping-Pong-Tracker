@@ -1,5 +1,5 @@
 import sys
-sys.path.append('./gspread')
+sys.path.append('./dependencies')
 import gspread # noqa E402
 
 
