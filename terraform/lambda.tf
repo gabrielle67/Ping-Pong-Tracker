@@ -30,4 +30,10 @@ resource "aws_lambda_function" "get_highest_scorer" {
 resource "aws_lambda_function_url" "get_highest_scorer_url" {
   function_name = aws_lambda_function.get_highest_scorer.function_name
   authorization_type = "NONE"
+
+  cors {
+    allow_credentials = false
+    allow_origins     = ["*"]
+    allow_methods     = ["*"]
+  }
 }
