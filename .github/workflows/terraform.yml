@@ -35,13 +35,7 @@ jobs:
       run: terraform -chdir=terraform validate 
 
     - name: Terraform Plan
-      run: |
-        export tf_var_sheet_key="${{ secrets.TF_VAR_SHEET_KEY }}"
-        export tf_var_credentials="${{ secrets.TF_VAR_SERVICE_ACCT }}"
-        terraform -chdir=terraform plan -input=false
+      run: terraform -chdir=terraform plan -input=false
 
     - name: Terraform Apply
-      run: |
-        export tf_var_sheet_key="${{ secrets.TF_VAR_SHEET_KEY }}"
-        export tf_var_credentials="${{ secrets.TF_VAR_SERVICE_ACCT }}"
-        terraform -chdir=terraform apply -auto-approve -input=false
+      run: terraform -chdir=terraform apply -auto-approve -input=false
