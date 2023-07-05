@@ -176,6 +176,20 @@ class Players:
         ind = wins.index(max(wins))
         return names[ind]
 
+    def getAllPlayerNames(self):
+        names = get_column(self.sheet, COL_NAME)[1:]
+        return names
+
+    def getAllWinsandLosses(self):
+        names = get_column(self.sheet, COL_NAME)[1:]
+        wins = get_column(self.sheet, COL_WINS)[1:]
+        losses = get_column(self.sheet, COL_LOSS)
+        result = [
+            {"name": name, "wins": wins, "losses": losses}
+            for name, wins, losses in zip(names, wins, losses)
+            ]
+        return result
+
     def addPointandMarkLoss(self, winner, loser):
         winnerResult = self.checkPlayer(winner)
         loserResult = self.checkPlayer(loser)
