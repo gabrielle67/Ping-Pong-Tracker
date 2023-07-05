@@ -183,7 +183,7 @@ class Players:
     def getAllWinsandLosses(self):
         names = get_column(self.sheet, COL_NAME)[1:]
         wins = get_column(self.sheet, COL_WINS)[1:]
-        losses = get_column(self.sheet, COL_LOSS)
+        losses = get_column(self.sheet, COL_LOSS)[1:]
         result = [
             {"name": name, "wins": wins, "losses": losses}
             for name, wins, losses in zip(names, wins, losses)
