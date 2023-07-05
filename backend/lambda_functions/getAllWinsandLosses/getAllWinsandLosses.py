@@ -8,4 +8,4 @@ from players import Players # noqa E402
 
 def lambda_handler(event, context):
     players = Players(SHEET)
-    return players.getHighestScorer()
+    return players.getAllWinsandLosses()
