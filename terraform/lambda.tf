@@ -1,7 +1,7 @@
 data "archive_file" "highest_scorer_zip" {
   type        = "zip"
   source_dir  = "../backend/package"
-  output_path = "lambda_output.zip"
+  output_path = "lambda_package_output.zip"
 }
 
 variable "credentials" {
@@ -41,7 +41,7 @@ resource "aws_lambda_function_url" "get_highest_scorer_url" {
 data "archive_file" "wins_and_losses_zip" {
   type        = "zip"
   source_dir  = "../backend/package2"
-  output_path = "lambda_output.zip"
+  output_path = "lambda_package_output.zip"
 }
 
 resource "aws_lambda_function" "get_wins_and_losses" {
