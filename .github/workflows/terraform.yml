@@ -52,7 +52,7 @@ jobs:
 
     - name: Terraform Validate
       run: terraform -chdir=terraform validate 
-      
+
     - name: testing package_dirs 
       run: |
         cd package_dirs
@@ -60,7 +60,9 @@ jobs:
 
     - name: Terraform Plan
       run: terraform -chdir=terraform plan -input=false
+      working-directory: ${{ github.workspace }}/package_dirs
 
     - name: Terraform Apply
       run: terraform -chdir=terraform apply -auto-approve -input=false
+      working-directory: ${{ github.workspace }}/package_dirs
       
