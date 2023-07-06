@@ -1,5 +1,5 @@
 import pytest
-from ..lambda_functions.models.player import Player
+from models.player import Player
 
 
 @pytest.fixture
