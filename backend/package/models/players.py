@@ -171,7 +171,7 @@ class Players:
 
     def getHighestScorer(self):
         names = get_column(self.sheet, COL_NAME)[1:]
-        wins = get_column(self.sheet, COL_WINS)[1:]
+        wins = list(map(int, get_column(self.sheet, COL_WINS)[1:]))
 
         ind = wins.index(max(wins))
         return names[ind]
