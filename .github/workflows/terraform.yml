@@ -20,8 +20,8 @@ jobs:
 
     - name: Package Functions
       run: |
-        cd /backend
-        for folder in /lambda_functions/*; do
+        cd backend
+        for folder in lambda_functions/*; do
           if [[ -d "$folder" ]]; then
             echo "current dir: $folder"
             pkg_dir="./${folder}_pkg"
