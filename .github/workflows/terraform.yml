@@ -59,10 +59,10 @@ jobs:
         ls
 
     - name: Terraform Plan
-      run: terraform -chdir=terraform plan -input=false
-      working-directory: ${{ github.workspace }}/package_dirs
+      run: |
+        ls
+        terraform -chdir=terraform plan -input=false
 
     - name: Terraform Apply
       run: terraform -chdir=terraform apply -auto-approve -input=false
-      working-directory: ${{ github.workspace }}/package_dirs
       
