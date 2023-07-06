@@ -20,15 +20,15 @@ jobs:
 
     - name: Package Functions
       run: |
-        for folder in backend/lambda_functions/*; do
+        cd /backend
+        for folder in /lambda_functions/*; do
           if [[ -d "$folder" ]]; then
             echo "current dir: $folder"
-            pip install --target ./"$folder"_pkg gspread
-            echo "installed gspread to ./$folder_pkg. copying models and utils "
-            cp -r "backend/utils" ./"$folder"_pkg
-            cp -r "backend/models" ./"$folder"_pkg
-            cd "$folder"_pkg
-            ls
+            pkg_dir="./${folder}_pkg"
+            pip install --target $pkg_dir gspread
+            echo "installed gspread to $pkg_dir copying models and utils "
+            cp -r "backend/utils" $pkg_dir
+            cp -r "backend/models" $pkg_dir
           fi
         done
 
