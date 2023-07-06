@@ -33,6 +33,22 @@ header {
   background: white;
 }
 
+horizontal-bar {
+  display: flex;
+  margin: 0 auto;
+  width: 60%;
+  height: 500px;
+  margin-top: 200px;
+}
+
+.loading-chart {
+  position: relative;
+  margin: 0 auto;
+  margin-top: 200px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
 
 .nav-button {
   background: none;
@@ -51,7 +67,6 @@ header {
 .nav-button:hover {
   color: #E86850;
 }
-
 
 h1 {
   font-style: normal;
@@ -81,6 +96,7 @@ h2 {
 h3 {
   margin-top: 0;
   font-size: 18px;
+  color: #FFFFFF;
 }
 
 h4 {

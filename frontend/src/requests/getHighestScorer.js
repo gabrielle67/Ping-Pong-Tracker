@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const URL = 'https://t7pe7hs2o4liq4pqmpdkpqskj40edaym.lambda-url.us-east-1.on.aws/'
+const URL = 'https://zrhgrz4qtixv6r3rwwjc6mtddi0vvopw.lambda-url.us-east-1.on.aws/'
 
 function GetHighestScorer() {
   const [data, setData] = useState(null);

@@ -4,7 +4,6 @@ import Header from "./Header"
 
 function Navigation() {
     return(
-        
         <navigation>
             <NavButton title="teammates"/>
             <NavButton title="new game"/>

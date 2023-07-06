@@ -1,6 +1,7 @@
 import React from 'react';
 import Navigation from './components/nav/Navigation';
-import GetHighestScorer from './components/requests/getHighestScorer';
+import GetHighestScorer from './requests/getHighestScorer';
+import HorizontalBarChart from './components/charts/horizontal_bar';
 
 function App() {
   return (
@@ -9,7 +10,8 @@ function App() {
       <h2>
         Current Ping Pong Champion:
         <GetHighestScorer />
-      </h2> 
+      </h2>
+      <HorizontalBarChart />
     </div>
   );
 }
