@@ -21,12 +21,10 @@ jobs:
 
     - name: Package Functions
       run: |
-        for file in backend/lambda_functions/*; do
-          if [[ -f "$file" ]]; then
-            echo "file found"
-            echo "$file"
+        for folder in backend/lambda_functions/*; do
+          if [[ -d "$folder" ]]; then
+            echo "$folder"
           fi
-          echo "test"
         done
 
 
