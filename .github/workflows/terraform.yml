@@ -47,6 +47,12 @@ jobs:
           fi
         done
 
+    - name: create artifactf of Functions
+      uses: actions/upload-artifact@v2
+      with:
+        name: package-dirs
+        path: package_dirs
+
     - name: Terraform Init
       run: terraform -chdir=terraform init
 

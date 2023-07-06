@@ -1,9 +1,3 @@
-resource "null_resource" "check_working_directory" {
-  provisioner "local-exec" {
-    command = "pwd"
-  }
-}
-
 data "archive_file" "wins_and_losses_zip" {
   type        = "zip"
   source_dir  = "${path.root}/package_dirs/getAllWinsandLosses_pkg"
