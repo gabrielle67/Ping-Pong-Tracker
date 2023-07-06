@@ -26,9 +26,12 @@ jobs:
             echo "current dir: $folder"
             pkg_dir="./${folder}_pkg"
             pip install --target $pkg_dir gspread
-            echo "installed gspread to $pkg_dir copying models and utils "
+            echo "installed gspread to $pkg_dir. "
             cp -r "utils" $pkg_dir
             cp -r "models" $pkg_dir
+            echo "copied utils and models"
+            cd $pkg_dir
+            ls
           fi
         done
 
