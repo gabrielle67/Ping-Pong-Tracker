@@ -1,4 +1,3 @@
-import React from "react";
 import { WINSLOSSESREQUEST } from "./constants";
 
 export async function GetAllWinsandLosses() {
