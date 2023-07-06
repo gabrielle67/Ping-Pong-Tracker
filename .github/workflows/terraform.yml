@@ -47,16 +47,16 @@ jobs:
           fi
         done
 
-    - name: testing package_dirs 
-      run: |
-        cd package_dirs
-        ls
-
     - name: Terraform Init
       run: terraform -chdir=terraform init
 
     - name: Terraform Validate
       run: terraform -chdir=terraform validate 
+      
+    - name: testing package_dirs 
+      run: |
+        cd package_dirs
+        ls
 
     - name: Terraform Plan
       run: terraform -chdir=terraform plan -input=false
