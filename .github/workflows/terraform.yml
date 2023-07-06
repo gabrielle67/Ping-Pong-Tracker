@@ -29,6 +29,7 @@ jobs:
             echo "installed gspread to $pkg_dir. "
             cp -r "utils" $pkg_dir
             cp -r "models" $pkg_dir
+            cp -r $folder $pkg_dir
             echo "copied utils and models"
             cd $pkg_dir
             ls
