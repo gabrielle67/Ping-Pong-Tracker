@@ -47,7 +47,7 @@ jobs:
           fi
         done
 
-    - name: create artifactf of Functions
+    - name: Create Directory Artifact
       uses: actions/upload-artifact@v2
       with:
         name: package-dirs
