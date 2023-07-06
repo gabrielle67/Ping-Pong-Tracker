@@ -33,7 +33,7 @@ jobs:
     - name: Create Build Artifact
       uses: actions/upload-artifact@v2
       with:
-        name: frontend/build
+        name: build
         path: frontend/build
 
     - name: Package Functions Directory
