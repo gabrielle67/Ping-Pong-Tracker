@@ -1,6 +1,6 @@
 data "archive_file" "wins_and_losses_zip" {
   type        = "zip"
-  source_dir  = "../backend/package2"
+  source_dir  = "./lambda_functions/getAllWinsandLosses_pkg"
   output_path = "lambda_package2_output.zip"
 }
 

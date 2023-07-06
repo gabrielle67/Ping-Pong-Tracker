@@ -1,6 +1,6 @@
 data "archive_file" "highest_scorer_zip" {
   type        = "zip"
-  source_dir  = "../backend/package"
+  source_dir  = "./lambda_functions/getHighestScorer_pkg"
   output_path = "lambda_package_output.zip"
 }
 
