@@ -19,7 +19,7 @@ function GetHighestScorer() {
   }, []);
 
   if (!data) {
-    return <div>Loading...</div>;
+    return <div>loading champion...</div>;
   }
 
   return (

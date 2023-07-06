@@ -68,7 +68,7 @@ jobs:
 
     - name: testing package_dirs 
       run: |
-        cd package_dirs
+        cd frontend
         ls
 
     - name: Terraform Plan
