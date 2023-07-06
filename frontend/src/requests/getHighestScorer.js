@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-
-const URL = 'https://erlspq2lnuz5hvfkldyd2nlbgy0yxbgi.lambda-url.us-east-1.on.aws/'
+import { HIGHESTSCORERREQUEST } from './constants';
 
 function GetHighestScorer() {
   const [data, setData] = useState(null);
@@ -8,7 +7,7 @@ function GetHighestScorer() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(URL);
+        const response = await fetch(HIGHESTSCORERREQUEST);
         const textData = await response.text();
         setData(textData);
       } catch (error) {

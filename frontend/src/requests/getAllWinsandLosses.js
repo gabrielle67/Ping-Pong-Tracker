@@ -1,10 +1,9 @@
 import React from "react";
-
-const URL = 'https://22lcozxsiolmtepmnlrezcfrf40pnqys.lambda-url.us-east-1.on.aws/'
+import { WINSLOSSESREQUEST } from "./constants";
 
 export async function GetAllWinsandLosses() {
   try {
-    const response = await fetch(URL);
+    const response = await fetch(WINSLOSSESREQUEST);
     const data = await response.json();
     const updatedData = data.map((item) => ({
       ...item,

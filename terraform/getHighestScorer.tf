@@ -1,7 +1,7 @@
 data "archive_file" "highest_scorer_zip" {
   type        = "zip"
   source_dir  = "../package_dirs/getHighestScorer_pkg"
-  output_path = "lambda_package_output.zip"
+  output_path = "getHighestScorer_output.zip"
 }
 
 resource "aws_lambda_function" "get_highest_scorer" {

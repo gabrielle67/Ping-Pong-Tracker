@@ -1,7 +1,7 @@
 data "archive_file" "wins_and_losses_zip" {
   type        = "zip"
   source_dir  = "../package_dirs/getAllWinsandLosses_pkg"
-  output_path = "lambda_package2_output.zip"
+  output_path = "getAllWinsandLosses_output.zip"
 }
 
 resource "aws_lambda_function" "get_wins_and_losses" {
