@@ -23,7 +23,7 @@ jobs:
       run: |
         for file in backend/lambda_functions/*; do
           if [[ -f "$file" ]]; then
-            echo file
+            echo "$file"
           fi
         done
 
