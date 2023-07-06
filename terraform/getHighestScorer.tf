@@ -1,6 +1,6 @@
 data "archive_file" "highest_scorer_zip" {
   type        = "zip"
-  source_dir  = "$GITHUB_WORKSPACE/package_dirs/getHighestScorer_pkg"
+  source_dir  = "../../package_dirs/getHighestScorer_pkg"
   output_path = "lambda_package_output.zip"
 }
 
