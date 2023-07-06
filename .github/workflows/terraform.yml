@@ -24,6 +24,10 @@ jobs:
           if [[ -d "$folder" ]]; then
             echo "current dir: $folder"
             pip install --target ./"$folder"_pkg gspread
+            echo "installed gspread to ./$folder_pkg. copying models and utils "
+            cp -r "backend/utils" ./"$func"_pkg
+            cp -r "backend/models" ./"$func"_pkg
+            ls
           fi
         done
 
