@@ -5,7 +5,7 @@ data "archive_file" "all_player_names_zip" {
 }
 
 resource "aws_lambda_function" "get_all_player_names" {
-  function_name = "getAllWinsandLosses"
+  function_name = "getAllPlayerNames"
   role          = aws_iam_role.lambda_iam.arn
   handler       = "getAllPlayerNames/getAllPlayerNames.lambda_handler"
   runtime       = "python3.9"

@@ -9,7 +9,7 @@ import {
   Legend
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
-import { horizontal_bar_background } from './chart_plugins/horizontal_bar_plugin';
+import { horizontal_bar_background } from './chart_plugins/background_color';
 import GetAllWinsandLosses from '../../requests/getAllWinsandLosses'
 
 ChartJS.register(
@@ -44,14 +44,14 @@ export const options = {
             color: 'white'
         },
         customCanvasBackgroundColor: {
-            color: 'rgba(153, 255, 255, 0.2)'
+            color: 'rgba(153, 255, 255, 0)'
         },
     },
     scales: {
         y: { ticks: { color: 'white' } },
         x: { ticks: { color: 'white' } }
     },
-    maintainAspectRatio: true,
+    maintainAspectRatio: false,
 };
 
 export default function HorizontalBarChart() {
