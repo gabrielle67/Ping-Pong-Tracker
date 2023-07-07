@@ -5,7 +5,7 @@ data "archive_file" "opponent_scores_zip" {
 }
 
 resource "aws_lambda_function" "get_opponent_scores" {
-  function_name = "getHighestScorer"
+  function_name = "getOpponentScores"
   role          = aws_iam_role.lambda_iam.arn
   handler       = "getOpponentScores/getOpponentScores.lambda_handler"
   runtime       = "python3.9"
