@@ -8,7 +8,7 @@ from models.players import Players # noqa E402
 
 def lambda_handler(event, context):
     players = Players(SHEET)
-    player = event.player
-    opp = event.opp
-    score = players.getPlayerByName(player).getScoreOpponent(opp)
+    player = event["name"]
+    opponent = event["opp"]
+    score = players.getPlayerByName(player).getScoreOpponent(opponent)
     return score
