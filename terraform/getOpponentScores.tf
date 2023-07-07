@@ -9,8 +9,7 @@ resource "aws_lambda_function" "get_opponent_scores" {
   role          = aws_iam_role.lambda_iam.arn
   handler       = "getOpponentScores/getOpponentScores.lambda_handler"
   runtime       = "python3.9"
-  filename      = data.archive_file.opponent_scores_zip.zip
-
+  filename      = data.archive_file.opponent_scores_zip.output_path
   environment {
     variables = {
       "CREDENTIALS" = var.credentials
