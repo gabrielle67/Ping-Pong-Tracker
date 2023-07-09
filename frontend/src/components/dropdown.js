@@ -33,7 +33,7 @@ export function PlayerDropdowns({ onSelectPlayer1, onSelectPlayer2 }) {
       };
   
       fetchData();
-    }, []);   
+    },[]);   
 
     useEffect(() => {
         async function updateChart() {
