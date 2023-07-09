@@ -9,7 +9,6 @@ export async function GetAllWinsandLosses() {
       losses: -parseInt(item.losses),
       wins: parseInt(item.wins)
     }));
-    console.trace()
     console.log(updatedData)
     return updatedData;
   } catch (error) {

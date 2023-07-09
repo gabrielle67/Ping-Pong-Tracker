@@ -1,8 +1,8 @@
 import React from 'react';
 import Navigation from './components/nav/Navigation';
 import GetHighestScorer from './requests/getHighestScorer';
-import { DoughnutChart } from './components/charts/doughnut';
 import HorizontalBarChart from './components/charts/horizontal_bar';
+import { PlayerDropdowns } from './components/dropdown';
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
         <GetHighestScorer />
       </h2>
       <HorizontalBarChart />
-      <DoughnutChart />
+      <PlayerDropdowns />
     </div>
   );
 }
