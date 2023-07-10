@@ -1,0 +1,12 @@
+import sys
+
+sys.path.append('./utils')
+sys.path.append('./models')
+from constants import SHEET # noqa E402
+from players import Players # noqa E402
+
+
+def lambda_handler(event, context):
+    players = Players(SHEET)
+    player = event["queryStringParameters"].get("name")
+    return players.getPlayerByName(player)
