@@ -1,5 +1,7 @@
 
-# Inception Ping Pong Tracker
+# Inception Ping Pong Tracker - Unfinished
+
+Resources are deprecated
 
 This project allows users to track ping pong scores and view score data.
 [Site](http://ping-pong-tracker.s3-website-us-east-1.amazonaws.com/)
