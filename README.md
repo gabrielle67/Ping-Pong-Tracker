@@ -1,5 +1,5 @@
 
-# Inception Ping Pong Tracker - Unfinished
+# Inception Ping Pong Tracker
 
 Resources are deprecated
 
